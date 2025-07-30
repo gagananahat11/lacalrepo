@@ -6,8 +6,9 @@ print("Hello, World!")
 # Add two numbers
 a = 5
 b = 3
-sum = a + b
+c = 4
+sum = a + b + c
 
 # Print the result
-print("The sum of", a, "and", b, "is", sum)
+print("The sum of", a, "and", b, "and" c , "is", sum)
 
