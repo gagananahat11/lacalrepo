@@ -4,25 +4,24 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo 'Cloning the repository...'
                 checkout scm
             }
         }
 
-        stage('Deploy HTML with Docker Compose') {
+        stage('Deploy') {
             steps {
-                echo 'Starting Nginx container to serve static HTML...'
-                sh 'docker-compose up -d'
+                echo 'Running Docker Compose (v2)...'
+                sh 'docker compose up -d'
             }
         }
     }
 
     post {
         success {
-            echo 'Static HTML site deployed successfully!'
+            echo 'Deployment successful!'
         }
         failure {
-            echo 'Deployment failed. Check logs.'
+            echo 'Deployment failed. Check Docker setup and Compose version.'
         }
     }
 }
